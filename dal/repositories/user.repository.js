@@ -1,15 +1,27 @@
 
-class UserRepository{
-    constructor({db}){
+class UserRepository {
+    constructor({ db }) {
         this._db = db;
     }
 
-    getUsers(){
+    getUsers() {
         return this._db.users.findAll();
     }
 
-    createUser(user){
+    getUser(id) {
+        return this._db.users.findOne({ where: { id } });
+    }
+
+    createUser(user) {
         return this._db.users.create(user);
+    }
+
+    updateUser(id, user) {
+        return this._db.usres.update(user, { where: { id } });
+    }
+
+    deleteUser(id) {
+        return this._db.users.destroy({ where: { id } });
     }
 }
 

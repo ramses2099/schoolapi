@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = function (sequelize, DataTypes) {
-    const User = sequelize.define(
-        "users",
+    const Course = sequelize.define(
+        "courses",
         {
             id: {
                 type: DataTypes.BIGINT,
@@ -20,24 +20,24 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         {
-            tableName: "users",
+            tableName: "courses",
             timestamps: false
         }
     );
 
-    User.associate = function(models){
-        User.belongsTo(models.classrooms,{
-            foreignKey: "classroomId",
+    Course.associate = function(models){
+        Course.belongsTo(models.classrooms,{
+            foreignKey: "classrroomId",
             as: "classrooms"
         });
 
-        User.belongsToMany(models.courses,{
-            through:"userCourses",
-            foreignKey: "userId",
+        Course.belongsToMany(models.courses,{
+            through:"usercourses",
+            foreignKey: "id",
             as: "courses"
-        });
+        })
 
     }
 
-    return User;
+    return Course;
 }
