@@ -1,10 +1,23 @@
 class UserController {
-    constructor() {
-        
+    constructor({UserService}) {
+        this._userService = UserService;
     }
-    
-    sayHello(req, res){
-        return res.send({message:"funciona"})
+     
+    async getUsers(req, res){
+        const users =  await this._userService.getUsers();
+        return res.send({
+            error:false,
+            payload: users
+        });
+    }
+
+    async createUser(req, res){
+        const {body} = req;
+        const createUser = await this._userService.createUser(body);
+        return res.send({
+            error:false,
+            payload: createUser
+        });
     }
 
 }
