@@ -17,6 +17,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mapper.js": "^0.4.1",
     "mariadb": "^2.5.3",
     "sequelize": "^6.5.1",
     "structure": "^2.0.1"

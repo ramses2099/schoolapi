@@ -16,7 +16,6 @@ class UserController {
     }
     //
     async getUser(req, res) {
-
         const { id } = req.params;
         let user = await this._userService.getUser(id);
         user = mapper(UserDto, user);

@@ -1,3 +1,3 @@
 module.exports = {
-    UserBusiness: require('./user.business')
+    StudentBusiness: require('./student.business')
 };

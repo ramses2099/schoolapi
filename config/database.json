@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "P@ssword01",
+    "database": "schoolapi_dev",
+    "host": "localhost",
+    "dialect": "mariadb"
+  },
+  "QA": {
+    "username": "root",
+    "password": "P@ssword01",
+    "database": "schoolapi_qa",
+    "host": "localhost",
+    "dialect": "mariadb"
+  },
+  "production": {
+    "username": "root",
+    "password": "P@ssword01",
+    "database": "schoolapi_pro",
+    "host": "localhost",
+    "dialect": "mariadb"
+  }
+}

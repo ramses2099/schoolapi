@@ -5,19 +5,25 @@ const StartUp = require('./startup');
 const config = require('../config/enviroments');
 //routes
 const Routes = require('../api/routes');
-const UserRouter = require('../api/routes/user.routes');
+const StudentRouter = require('../api/routes/student.routes');
+
+//dtos
+const { StudentDto } = require('./dtos');
 
 //business
-const { UserBusiness } = require('../domain');
+const { StudentBusiness } = require('../domain');
 
 //controllers
-const { UserController } = require('../api/controllers');
+const { StudentController } = require('../api/controllers');
+
 //services
-const { UserService } = require('../services');
+const { StudentService } = require('../services');
+
 //repository
-const { UserRepository } = require('../dal/repositories')
+const { StudentRepository } = require('../dal/repositories')
+
 //config db
-const db = require('../dal/entities');
+const db = require('../dal/models');
 
 const container = createContainer();
 
@@ -25,17 +31,19 @@ container.register({
     app: asClass(StartUp).singleton(),
     server: asClass(Server).singleton(),
     router: asFunction(Routes).singleton(),
-    UserController: asClass(UserController).singleton(),
-    UserRouter: asFunction(UserRouter).singleton()
+    StudentController: asClass(StudentController).singleton(),
+    StudentRouter: asFunction(StudentRouter).singleton()
 }).register({
     config: asValue(config),
     db: asValue(db)
 }).register({
-    UserService: asClass(UserService).singleton()
+    StudentService: asClass(StudentService).singleton()
 }).register({
-    UserRepository: asClass(UserRepository).singleton()
+    StudentRepository: asClass(StudentRepository).singleton()
 }).register({
-    UserBusiness: asClass(UserBusiness).singleton()
+    StudentBusiness: asClass(StudentBusiness).singleton()
+}).register({
+    StudentDto: asClass(StudentDto).singleton()
 });
 
 module.exports = container;

@@ -4,7 +4,7 @@ const cors = require('cors');
 const compression = require('compression');
 
 //create function anonymus
-module.exports = function ({ UserRouter }) {
+module.exports = function ({ StudentRouter }) {
     const router = Router();
     const apiRoute = Router();
 
@@ -13,7 +13,7 @@ module.exports = function ({ UserRouter }) {
         .use(bodyParser.json())
         .use(compression());
 
-    apiRoute.use("/user", UserRouter);
+    apiRoute.use("/student", StudentRouter);
     router.use("/api", apiRoute);
 
     return router;
